@@ -1,5 +1,6 @@
 package com.samlwh.musicmachine;
 
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,16 +17,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDownloadButton = (Button) findViewById(R.id.downloadButton);
+        final DownloadThread thread = new DownloadThread();
+        thread.setName("DownloadThread");
+        thread.start();
 
+        mDownloadButton = (Button) findViewById(R.id.downloadButton);
         mDownloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Downloading", Toast.LENGTH_SHORT).show();
 
-                DownloadThread thread = new DownloadThread();
-                thread.setName("DownloadThread");
-                thread.start();
+                // Send Messages to Handler for processing
+                for (String song : Playlist.songs) {
+                    Message message = Message.obtain();
+                    message.obj = song;
+                    thread.mHandler.sendMessage(message);
+                }
             }
         });
     }
