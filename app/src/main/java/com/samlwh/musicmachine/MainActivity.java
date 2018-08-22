@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String KEY_SONG = "song";
     private Button mDownloadButton;
+    private Button mPlayButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mDownloadButton = (Button) findViewById(R.id.downloadButton);
+        mPlayButton = (Button) findViewById(R.id.playButton);
 
         mDownloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra(KEY_SONG, song);
                     startService(intent);
                 }
+            }
+        });
+        mPlayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
