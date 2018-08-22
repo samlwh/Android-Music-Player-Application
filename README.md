@@ -9,6 +9,8 @@ Mobile App Preview
 Console Preview
 ![image](https://github.com/samlwh/Android-Music-Player-Application/blob/master/low.gif)
 
+understanding the purpose between START_STICKY,START_NOT_STICKY, START_REDELIVER_INTENT
+
 
 
 p.S.   https://github.com/vvo/gifify <-- it is really helpful to create GIF :)
