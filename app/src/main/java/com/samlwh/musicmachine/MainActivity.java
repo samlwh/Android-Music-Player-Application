@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Send Messages to Handler for processing
                 for (String song : Playlist.songs) {
-                    Intent intent = new Intent(MainActivity.this, DownloadService.class);
+                    Intent intent = new Intent(MainActivity.this, DownloadIntentService.class);
                     intent.putExtra(KEY_SONG, song);
                     startService(intent);
                 }
