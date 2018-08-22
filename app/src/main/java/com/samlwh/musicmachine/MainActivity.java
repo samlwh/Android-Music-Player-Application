@@ -22,7 +22,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Downloading", Toast.LENGTH_SHORT).show();
-                downloadSong();
+
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        downloadSong();
+                    }
+                };
+
+                Thread thread = new Thread(runnable);
+                thread.setName("DownloadThread");
+                thread.start();
             }
         });
     }
