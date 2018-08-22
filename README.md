@@ -11,4 +11,4 @@ Console Preview
 
 
 
-p.S. thanks for https://github.com/vvo/gifify for make it easy to create GIF :)
+p.S.   https://github.com/vvo/gifify <-- it is really helpful to create GIF :)
